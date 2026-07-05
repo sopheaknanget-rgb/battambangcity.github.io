@@ -1,0 +1,507 @@
+:root {
+  --primary-color: #0284c7; /* Sky blue tone for links and accents */
+  --primary-dark: #0369a1; /* Darker blue for hover states */
+  --bg-color: #f8fafc; /* Off-white background */
+  --card-bg: #ffffff; /* White for cards and containers */
+  --text-color: #1e293b; /* Dark gray for readable text */
+  --text-muted: #64748b; /* Muted gray for subtitles/descriptions */
+  --accent-color: #fde68a; /* Soft yellow used for hotel image placeholders */
+  --border-color: #e2e8f0; /* Light borders */
+  --font-khmer: "Kantumruy Pro", sans-serif;
+  --font-title: "Khmer OS Moul", "Kantumruy Pro", sans-serif;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-khmer);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Common Section Text Styles */
+.main-title {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  color: #0f172a;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION BAR
+   ========================================================================== */
+header {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.7rem;
+  color: var(--primary-dark);
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary-color);
+  background-color: #f0f9ff;
+}
+
+/* ==========================================================================
+   3. MARQUEE & HERO HERO SECTIONS
+   ========================================================================== */
+.marquee-wrapper {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  border-bottom: 1px solid #bae6fd;
+}
+
+.hero {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  padding: 4rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2);
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. INDEX PAGE - TOURISM SCENIC GRID
+   ========================================================================== */
+.scenic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1xl));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .scenic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .scenic-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.image-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  order: 1; /* Puts image below the button text label */
+}
+
+.image-card .button {
+  order: 2;
+  background-color: var(--card-bg);
+  border: none;
+  font-family: var(--font-khmer);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.image-card a {
+  order: 1;
+  display: block;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   5. ACCOMMODATION & ABOUT PAGE (PLACES & MEMBERS GRIDS)
+   ========================================================================== */
+.places-grid,
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.place-card,
+.book-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+}
+
+.place-image,
+.book-image {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.place-image img,
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.place-info,
+.book-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.place-name,
+.book-author {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+.info-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   6. MARKET PAGE STYLING
+   ========================================================================== */
+#scroll-container {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.scroll-text h2 {
+  font-family: var(--font-title);
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  padding: 30px
+  text-aling: center;
+  margin: 0;
+  font-size: 2rem;
+
+}
+
+.describe {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  background-color: var(--primary-color);
+  color: var(--card-bg);
+  ont-family: var(--font-title);
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.main-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.main-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.main-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+.main-card p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Market Lists Structure */
+.main-III {
+  text-align: center;
+  margin: 3rem 0 1.5rem;
+}
+
+.main-III h3 {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+}
+
+.districts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.district-card {
+  background: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.district-card h4 {
+  font-size: 1.05rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.en-title {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+  font-weight: normal;
+}
+
+.district-card ul {
+  list-style-position: inside;
+  color: #334155;
+}
+
+.district-card li {
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+/* Wide City Card configuration */
+.wide-card {
+  grid-column: 1 / -1;
+}
+
+.city-markets {
+  list-style: none !important;
+}
+
+.city-markets li {
+  margin-bottom: 0.75rem !important;
+  background: #f1f5f9;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   7. TRANSPORTATION PAGE STYLING
+   ========================================================================== */
+.about-section {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-content h3 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-content p {
+  margin-bottom: 1rem;
+  color: #334155;
+}
+
+.about-content a {
+  display: inline-block;
+  background: #f0f9ff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+
+/* ==========================================================================
+   8. FOOTER STYLING
+   ========================================================================== */
+footer {
+  background-color: var(--text-color); /* Syntax: background-color: <ពណ៌>; កំណត់ពណ៌ផ្ទៃខាងក្រោយ Footer ពណ៌ងងឹត */
+  color: var(
+    --white
+  ); /* Syntax: color: <ពណ៌>; កំណត់ពណ៌អក្សរក្នុង Footer ជាពណ៌ស */
+  padding: 40px 0 20px 0; /* Syntax: padding: <លើ> <ស្តាំ> <ក្រោម> <ឆ្វេង>; គម្លាតខាងក្នុង (លើ ៤០px, ឆ្វេងនិងស្តាំ ០, ក្រោម ២០px) */
+  text-align: center; /* Syntax: text-align: center; តម្រឹមអក្សរនៅកណ្តាល */
+}
+
+body.about-page footer,
+body.contact-page footer {
+  margin-top: 40px; /* Syntax: margin-top: <ទំហំ>; រុញ Footer ឱ្យឃ្លាតពីខាងលើ ៤០ភីកសែល សម្រាប់ទំព័រ About និង Contact */
+}
+
+.footer-content {
+  display: flex; /* Syntax: display: flex; បង្ហាញជាទម្រង់ Flexbox */
+  flex-wrap: wrap; /* Syntax: flex-wrap: wrap; អនុញ្ញាតឱ្យទម្លាក់ជួរពេលចង្អៀត */
+  justify-content: space-around; /* Syntax: justify-content: space-around; រៀបចំបែងចែកចន្លោះទទេរឱ្យស្មើៗគ្នាជុំវិញធាតុនីមួយៗ */
+  gap: 30px; /* Syntax: gap: <ទំហំ>; គម្លាតរវាងជួរឈរនីមួយៗ ៣០ភីកសែល */
+  margin-bottom: 30px; /* Syntax: margin-bottom: <ទំហំ>; គម្លាតខាងក្រោមនៃខ្លឹមសារ Footer ៣០ភីកសែល */
+}
+
+.footer-links h4 {
+  margin-bottom: 15px; /* Syntax: margin-bottom: <ទំហំ>; គម្លាតខាងក្រោមចំណងជើងជួរឈរ ១៥ភីកសែល */
+  font-size: 18px; /* Syntax: font-size: <ទំហំ>; ទំហំអក្សរចំណងជើងជួរឈរ */
+}
+
+.footer-links ul {
+  list-style: none; /* Syntax: list-style: none; លុបចំណុចពីមុខបញ្ជីតំណភ្ជាប់ */
+}
+
+.footer-links ul li {
+  margin-bottom: 10px; /* Syntax: margin-bottom: <ទំហំ>; គម្លាតខាងក្រោមតំណភ្ជាប់នីមួយៗ ១០ភីកសែល */
+}
+
+.footer-links a {
+  color: #9ca3af; /* Syntax: color: <ពណ៌>; ពណ៌អក្សរតំណភ្ជាប់ក្នុង Footer ជាពណ៌ប្រផេះ */
+  transition: color 0.3s; /* Syntax: transition: <property> <រយៈពេល>; ចលនារលូនពេលប្តូរពណ៌តំណភ្ជាប់ */
+}
+
+.footer-links a:hover {
+  color: var(
+    --white
+  ); /* Syntax: color: <ពណ៌>; ប្តូរតំណភ្ជាប់ទៅជាពណ៌សពេលដាក់កណ្ដុរពីលើ */
+}
